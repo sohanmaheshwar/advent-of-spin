@@ -6,5 +6,8 @@ POST http://localhost:3000/
     "weight": [12, 20, 23, 10],
     "capacity": 50
 }
+
+HTTP 200
+
 [Asserts]
 jsonpath "$.kids" == 9
