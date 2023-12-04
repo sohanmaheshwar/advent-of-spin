@@ -8,9 +8,10 @@ You'll need to use
 
 - Spin CLI
 - Your favorite programming [language](https://www.fermyon.com/wasm-languages/webassembly-language-support/) supported in Spin
-- Serving JSON from an api
+- [Hurl](https://hurl.dev/docs/installation.html)
+- A JSON API
 
-If this is your first time with Spin, [Challenge 1 from 2022](../../2022/CHALLENGE-1/README.md), is the perfect introduction to this yearly challenge. 
+If this is your first time with Spin, [Challenge 1 from 2022](../../2022/CHALLENGE-1/README.md), is the perfect introduction to get you started. 
 
 This year the stakes are higher, and the challenges...more challenging. The Fermyon elves have decided to help Santa use Serverless WebAssembly for Santa's new web application. Your task is to help the elves get the project up and running before Christmas Eve.
 
@@ -18,11 +19,16 @@ The elves will hang out in the Fermyon [Discord](https://discord.gg/AAFNfS7NGf) 
 
 ## Spec
 
-This time around, the elves need to help Santa prepare for his travel around the world with all of his presents. Now, we're all used to seeing Santa taking off in his sleigh with a huge sack of presents. But we all know that it's absolutely impossible for all of the presents to be handed out to children around the world, can fit in one load! So in reality, Santa obviously have to make multiple trips, but it's time consuming and the elves really want to help optimize the number of kids, Santa can reach on each trip. Now travel time is not an issue for Santa, with his hypersonic raindeers, so the main thing to consider is how do the elves load the sleigh, optimizing for the number of kids to reach, given the combined weight of presents to a single house, and the sleighs capacity.
+This time around, the elves need to help Santa prepare for his travel around the world with all of his presents. Now, we're all used to seeing Santa taking off in his sleigh with a *knapsack* of presents (hm is there a clue there, we wonder). But we know that it's impossible for ALL the presents to be handed out in one trip! So Santa has to make multiple trips which can be time-consuming. 
 
-You can write your application in ANY language that compiles to WebAssembly. To skip the boilerplate, use `spin new` and use one of our language templates.
+Now travel time is not an issue for Santa, with his hypersonic reindeer but the elves want to optimize the number of kids Santa can reach on each trip. Your main consideration is how the elves load the knapsack, optimizing for the number of kids that receive gifts, given the combined weight of presents to a single house, and the sleighs total capacity.
 
-The elves will use your application, by calling the root of you application, giving it an array of how many kids are in a given house, and to total weight of the presents for those kids. Your job is to tell the elves how many of those kids Santa can optimally reach in one load.
+The elves will use your application, by sending a request to its root and giving it arrays of: 
+
+* The number kids in a given house, and 
+* The total weight of the presents for those kids. 
+
+Your job is to tell the elves how many of those kids Santa can optimally reach in one trip.
 
 The body of the POST call to `/` will contain a JSON object which can look like this:
 ```JSON
@@ -32,19 +38,20 @@ The body of the POST call to `/` will contain a JSON object which can look like 
     "capacity": 120
 }
 ```
-Capacity is the weight that sleigh can carry (excluding Santa 🎅🏻)
+Capacity is the weight that a sleigh can carry (excluding Santa 🎅🏻)
 
-- When posting, the elves expect an HTTP status code `200` to be returned. With a body detailing how many kids can be reached given the data set prvided:
+- When posting, the elves expect an HTTP status code `200` to be returned and a body detailing how many kids can be reached given the data set provided:
+- 
 ```JSON
 {
     "kids": 20
 }
 ```
-- Also the header in the response should contain `Content-Type: application/json` 
+- Also, the header in the response should contain `Content-Type: application/json` 
 
 ## Test
 
-You can run our [Hurl](https://hurl.dev) test suite with `hurl --test test.hurl`, which will carry out tests, similar to what the elves will use you application for, when you submit it. Ensure you have `hurl` [installed](https://hurl.dev/docs/installation.html).
+You can run our [Hurl](https://hurl.dev) test suite with `hurl --test test.hurl`, which will carry out tests, similar to what the elves will use your application for, when you submit it. Ensure you have `hurl` [installed](https://hurl.dev/docs/installation.html).
 
 ## Submit
 
@@ -56,9 +63,7 @@ Once the application is deployed, enter the endpoint as serviceUrl below and run
 hurl --error-format long --variable serviceUrl="https://x-mas.fermyon.app" submit.hurl
 ```
 
-After the submission, Matt's wish list should be stored in your applications Key-Value store. Go check out what Matt wants for Christmas!
-
-And remember, if you wawnt to participate in the swag award, go [here](../../README.md#Prizes) and check out how to participate.
+After your submission, pat yourself on the back as you helped Santa deliver presents to kids around the world. And for your present aka some Fermyon Swag go [here](../../README.md#Prizes) and submit your form. Yes, you have to make a submission for each challenge.
 
 ## Nobody Must Code Alone!
 
