@@ -6,29 +6,32 @@ For this challenge you'll need to use:
 
 - Spin CLI
 - Your favorite programming [language](https://www.fermyon.com/wasm-languages/webassembly-language-support/) supported in Spin
-- Working with Spin's LLM feature
+- Working with Spin's [Serverless AI](https://www.fermyon.com/serverless-ai) feature
 
 If this is your first time with Spin, [Challenge 1 from 2022](../../2022/CHALLENGE-1/README.md), is the perfect introduction. 
 
-This year the stakes are higher, and the challenges...more challenging. The Fermyon elves have decided to help Santa use Serverless WebAssembly for Santa's new web application. Your task is to help the elves get the project up and running before Christmas Eve.
+This year the stakes are higher, and the challenges...more challenging. The Fermyon elves have decided to help Santa use Serverless WebAssembly for Santa's new web application. Your task is to help the elves get the project up and running before Christmas Eve. Oh and there are prizes to be won! 
 
 The elves will hang out in the Fermyon [Discord](https://discord.gg/AAFNfS7NGf) server, and can help answer questions along the way.
 
 ## Spec
 
-The elves have noticed that we're suddenly almost half-way through advent, so things are becoming a bit hectic. One of things the storyteller-elves suddenly realized, is that they haven't started writing the new Christmas stories for this year.
+The elves have noticed that we're suddenly almost half-way through Advent, so things are becoming a bit hectic. The storyteller-elves suddenly realized they haven't started writing the new Christmas stories for this year and time's running out 😰
 
-The elves will need your help in "writing" the most exciting and engaging christmas story of the year. Luckily they have discovered the Serverless AI features of Spin, and they think that might be a good way of doing this.
+The elves will need your help in "writing" the most exciting and engaging Christmas story of the year. Luckily they have discovered the Serverless AI features of Spin, and they think that might be the fastest way of doing this.
 
 You can write your application in ANY language that compiles to WebAssembly. To skip the boilerplate, use `spin new` and use one of our language templates.
 
-The elves will use you a random set of words, as inspiration to your story, now it's up to you to figure out how you can prompt the LLMs to use those words to create the most engaging christmas story. Hint: You can try to do a specific kind of style for your story (poem, play, short-story), Who's the narrator?, What's the language like (funny, sad, Simpsons-like)?
+The elves will give you a random set of words, as inspiration to your story. It's up to you to figure out how you can prompt the LLMs to use those words to create the most engaging Christmas story. 
+**Hint**: You can try any style or genre for your story (poem, play, short-story), Who's the narrator?, What's the language like (funny, sad, Simpsons-like)? 
+
+If you want some inspiration, check out [this blogpost](https://www.fermyon.com/blog/savvy-silicon-how-i-made-a-crossword-puzzle-helper-with-ai) on creating an AI Crossword Puzzle Helper.  
 
 The elves will POST to `/` with a JSON object like this (sample data):
 ```JSON
 {
     "place": "North Pole",
-    "characters": ["Santa Claus", "The Grinch", "a pingvin"],
+    "characters": ["Santa Claus", "The Grinch", "a penguin"],
     "objects": ["A spoon", "Two presents", "Palm tree"]
 }
 ```
